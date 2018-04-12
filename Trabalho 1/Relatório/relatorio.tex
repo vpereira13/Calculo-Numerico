@@ -14,7 +14,8 @@
 	% -- opções da classe memoir --
 	article,			% indica que é um artigo acadêmico
 	11pt,				% tamanho da fonte
-	oneside,			% para impressão apenas no recto. Oposto a twoside
+	twoside,			% para impressão frente e verso
+	openany,
 	a4paper,			% tamanho do papel.
 	sumario=tradicional
 	]{abntex2}
@@ -35,14 +36,21 @@
 \usepackage{microtype} 			% para melhorias de justificação
 % ---
 
-\renewcommand{\figurename}{Figura}
-\renewcommand{\tablename}{Tabela}
-
 % ---
 % Pacotes de citações
 % ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}					% Citações padrão ABNT
+\usepackage{caption}							% Pacote para resolver o problema do
+												% "listings", "minted" e códigos muito grandes
+\usepackage{listings}							% Pacote para listagens de códigos
+\usepackage{minted}								% Inserção de códigos fonte
+% ---
+
+% ---
+% Pacotes adicionais
+% ---
+\usepackage{showframe}
 % ---
 
 % ---
@@ -136,17 +144,22 @@
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
-\section*{Introdução}
+\include{introducao}
 
 % ----------------------------------------------------------
 % Seção de explicações
 % ----------------------------------------------------------
-\section{Método Iterativo de Gauss-Seidel}
+\include{metodo}
+
+% ----------------------------------------------------------
+% Seção de Códigos Fonte
+% ----------------------------------------------------------
+\include{codigos}
 
 % ---
 % Conclusão
 % ---
-\section*{Considerações finais}
+\include{conclusao}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
