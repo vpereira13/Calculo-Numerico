@@ -59,11 +59,11 @@ long double norma_infinita(long double *xk, long double *x, int n){
  * @param e     Precisão
  * @param itmax Número máximo de iterações
  */
-long double *gauss_seidel(long double **A, long double *b, long double *xi, int n, long double e, int itmax){
+long double *gauss_seidel(long double **A, long double *b, long double *x, int n, long double e, int itmax){
 	// Variáveis auxiliares
 	long double somaL;
 	long double somaU;
-	long double *xk;
+	long double *x_ant;
 
 	// Iteradores
 	int i;
@@ -71,26 +71,30 @@ long double *gauss_seidel(long double **A, long double *b, long double *xi, int 
 	int it = 0;
 
 	// Alocando espaço da memória para o vetor auxiliar
-	xk = malloc(sizeof(long double) * n);
+	x_ant = malloc(sizeof(long double) * n);
 
 	do{
+		for(i = 0; i < n; i++)
+			x_ant[i] = x[i];
+
 		for(i = 0; i < n; i++){
 			somaL = 0;
 			somaU = 0;
 			for(j = 0; j < i; j++)
-				somaL += A[i][j] * xi[j];
+				somaL += A[i][j] * x[j];
 			for(j = i + 1; j < n; j++)
-				somaU += A[i][j] * xi[j];
-			xk[i] = (b[i] - somaL - somaU )/A[i][i];
+				somaU += A[i][j] * x[j];
+			x[i] = (b[i] - somaL - somaU )/A[i][i];
 		}
 
-		if(norma_infinita(xk, xi, n) <= e)
-			return xk;
+		if(norma_infinita(x, x_ant, n) <= e){
+			free(x_ant);
+			return x;
+		}
 
-		for(i = 0; i < n; i++)
-			xi[i] = xk[i];
 		it++;
 	}while(it < itmax);
 
-	return xk;
+	free(x_ant);
+	return x;
 }

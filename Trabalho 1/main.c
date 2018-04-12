@@ -8,8 +8,7 @@ int main (int argc, char *argv[]){
 	int itmax;			// Número máximo de iterações
 	long double **A;	// Matriz de sistemas lineares
 	long double *b;		// Vetor resultado das equações
-	long double *xi;	// Vetor inicial
-	long double *xf;	// Vetor solução
+	long double *x;		// Vetor inicial
 	long double e;		// Erro permitido, precisão
 
 	// Iteradores
@@ -37,11 +36,11 @@ int main (int argc, char *argv[]){
 		scanf("%Lf", &b[i]);
 
 	// Alocação do vetor chute
-	xi = malloc(sizeof(long double) * n);
+	x = malloc(sizeof(long double) * n);
 
 	// Pegando os valores do x(0), o vetor inicial
 	for(i = 0; i < n; i++)
-		scanf("%Lf", &xi[i]);
+		scanf("%Lf", &x[i]);
 
 	// Pegando o valor da precisão (erro permitido)
 	scanf("%Lf", &e);
@@ -49,13 +48,12 @@ int main (int argc, char *argv[]){
 	// Pegando a quantidade máxima de iterações
 	scanf("%d", &itmax);
 
-	xf = gauss_seidel(A, b, xi, n, e, itmax);
+	x = gauss_seidel(A, b, x, n, e, itmax);
 
-	imprime_vetor(xf, n);
+	imprime_vetor(x, n);
 
 	// Liberando a memória
-	free(xi);
-	free(xf);
+	free(x);
 	free(b);
 	for (i = 0; i < n; i++)
 		free(A[i]);
