@@ -4,9 +4,9 @@
  *		Cálculo Numérico	SME-0104
  *		Prof.: Murilo Francisco Tomé
  *
- *		Eduardo Brunaldi dos Santos				8642515
- *		Jorge Ashkar Ferreira Simondi			8517081
- *		Victor Luiz da Silva Mariano Pereira	8602444
+ *		Eduardo Brunaldi dos Santos             8642515
+ *		Jorge Ashkar Ferreira Simondi           8517081
+ *		Victor Luiz da Silva Mariano Pereira    8602444
  */
 
 #ifndef GAUSS_SEIDEL_H
