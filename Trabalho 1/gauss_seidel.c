@@ -85,19 +85,24 @@ long double *gauss_seidel(long double **A, long double *b, long double *x, int n
 	x_ant = malloc(sizeof(long double) * n);
 
 	do{
+		// Para toda iteração, atualiza o vetor x anterior
 		for(i = 0; i < n; i++)
 			x_ant[i] = x[i];
 
 		for(i = 0; i < n; i++){
 			somaL = 0;
 			somaU = 0;
+			// Somatório da parte de baixo da matriz
 			for(j = 0; j < i; j++)
 				somaL += A[i][j] * x[j];
+			// Somatório da parte de cima da matriz
 			for(j = i + 1; j < n; j++)
 				somaU += A[i][j] * x[j];
+			// Aproximação do x
 			x[i] = (b[i] - somaL - somaU )/A[i][i];
 		}
 
+		// Calcula a norma infinita e compara com a tolerância
 		if(norma_infinita(x, x_ant, n) <= e){
 			free(x_ant);
 			return x;
@@ -106,6 +111,7 @@ long double *gauss_seidel(long double **A, long double *b, long double *x, int n
 		it++;
 	}while(it < itmax);
 
+	// Libera memória
 	free(x_ant);
 	return x;
 }

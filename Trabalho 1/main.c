@@ -15,12 +15,12 @@
 
 int main (int argc, char *argv[]){
 	// Variáveis de entrada
-	int n;				// Quantidade de equações do sistema linear
-	int itmax;			// Número máximo de iterações
-	long double **A;	// Matriz de sistemas lineares
-	long double *b;		// Vetor resultado das equações
-	long double *x;		// Vetor inicial
-	long double e;		// Erro permitido, precisão
+	int n;             // Quantidade de equações do sistema linear
+	int itmax;         // Número máximo de iterações
+	long double **A;   // Matriz de sistemas lineares
+	long double *b;    // Vetor resultado das equações
+	long double *x;    // Vetor inicial
+	long double e;     // Erro permitido, precisão
 
 	// Iteradores
 	int i;
@@ -59,8 +59,11 @@ int main (int argc, char *argv[]){
 	// Pegando a quantidade máxima de iterações
 	scanf("%d", &itmax);
 
+	// Calcula um valor aproximado para a resposta
+	// usando o método de Gauss-Seidel
 	x = gauss_seidel(A, b, x, n, e, itmax);
 
+	// Imprime a solução na tela
 	imprime_vetor(x, n);
 
 	// Liberando a memória
