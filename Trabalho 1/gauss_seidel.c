@@ -104,6 +104,14 @@ long double *gauss_seidel(long double **A, long double *b, long double *x, int n
 
 		// Calcula a norma infinita e compara com a tolerância
 		if(norma_infinita(x, x_ant, n) <= e){
+			// Se quiser imprimir o número de iterações necessários para
+			// chegar na solução encontrada, só descomentar o próximo
+			// comando 'printf()'. Se caso não imprimir o número de
+			// iterações mesmo descomentando o comando, quer dizer que
+			// o it chegou ao itmax.
+
+			// printf("Numero de iteracoes: %d\n", it);
+
 			free(x_ant);
 			return x;
 		}
