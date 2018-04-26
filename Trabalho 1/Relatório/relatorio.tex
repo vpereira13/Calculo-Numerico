@@ -38,6 +38,15 @@
 % ---
 
 % ---
+% Pacotes para fins matemáticos
+% ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+% ---
+
+% ---
 % Pacotes de citações
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
@@ -52,6 +61,7 @@
 % Pacotes adicionais
 % ---
 \usepackage{showframe}
+\usepackage{multicol}
 % ---
 
 % ---
@@ -146,17 +156,22 @@
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
-\include{introducao}
+\input{introducao}
 
 % ----------------------------------------------------------
 % Seção de explicações
 % ----------------------------------------------------------
-\include{metodo}
+\input{metodo}
 
 % ----------------------------------------------------------
-% Seção de Códigos Fonte
+% Seção de códigos fonte
 % ----------------------------------------------------------
 \include{codigos}
+
+% ----------------------------------------------------------
+% Seção de resultados dos testes
+% ----------------------------------------------------------
+\include{resultados}
 
 % ---
 % Conclusão
