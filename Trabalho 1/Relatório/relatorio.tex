@@ -13,12 +13,10 @@
 
 \documentclass[
 	% -- opções da classe memoir --
-	article,			% indica que é um artigo acadêmico
-	11pt,				% tamanho da fonte
+	12pt,				% tamanho da fonte
 	twoside,			% para impressão frente e verso
-	openany,
+	openright,
 	a4paper,			% tamanho do papel.
-	sumario=tradicional
 	]{abntex2}
 
 % ---
@@ -65,17 +63,39 @@
 % ---
 
 % ---
+% Teste
+% ---
+\usepackage{etoolbox}
+\newcommand{\zerodisplayskips}{%
+  \setlength{\abovedisplayskip}{0pt}%
+  \setlength{\belowdisplayskip}{0pt}%
+  \setlength{\abovedisplayshortskip}{0pt}%
+  \setlength{\belowdisplayshortskip}{0pt}}
+\appto{\normalsize}{\zerodisplayskips}
+\appto{\small}{\zerodisplayskips}
+\appto{\footnotesize}{\zerodisplayskips}
+% ---
+
+
+% ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
 \titulo{Trabalho 1\\
 		Métodos Iterativos para Sistemas Lineares}
-\autor{
-		Eduardo Brunaldi dos Santos\\ \small{8642515} \and
-		Jorge Ashkar Ferreira Simondi\\ \small{ 8517081} \and
-		Victor Luiz da Silva Mariano Pereira\\ \small{8602444}
+\autor{ Eduardo Brunaldi dos Santos --- 8642515\and\\
+		Jorge Ashkar Ferreira Simondi --- 8517081\and\\
+		Victor Luiz da Silva Mariano Pereira --- 8602444\\
 	}
+\orientador[Professor]{Murilo Francisco Tomé}
 \local{Brasil}
 \data{2018}
+\instituicao{%
+  Universidade de São Paulo -- USP
+  \par
+  Instituto de Ciências Matemáticas e de Computação -- ICMC
+  \par
+  Cálculo Numérico -- SME0104}
+\tipotrabalho{Trabalho Acadêmico}
 % ---
 
 % ---
@@ -87,34 +107,20 @@
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
+	 	%pagebackref=true,
 		pdftitle={\@title},
 		pdfauthor={\@author},
-    	pdfsubject={Método Iterativos Sistemas Lineares},
-	    pdfcreator={LaTeX with abnTeX2 and LuaLaTeX},
+		pdfsubject={Método Iterativos Sistemas Lineares},
+		pdfcreator={LaTeX with abnTeX2 and LuaLaTeX},
 		pdfkeywords={Cáculo Numérico}{ Métodos Iterativos}{ Gauss-Seidel},
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      	% color of file links
+		colorlinks=true,			% false: boxed links; true: colored links
+		linkcolor=blue,				% color of internal links
+		citecolor=blue,				% color of links to bibliography
+		filecolor=magenta,			% color of file links
 		urlcolor=blue,
 		bookmarksdepth=4
 }
 \makeatother
-% ---
-
-% ---
-% compila o indice
-% ---
-\makeindex
-% ---
-
-% ---
-% Altera as margens padrões
-% ---
-\setlrmarginsandblock{3cm}{3cm}{*}
-\setulmarginsandblock{3cm}{3cm}{*}
-\checkandfixthelayout
 % ---
 
 % ---
@@ -127,8 +133,10 @@
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
-% Espaçamento simples
-\SingleSpacing
+% ---
+% compila o indice
+% ---
+\makeindex
 
 % ----
 % Início do documento
@@ -141,11 +149,59 @@
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
+\pretextual
 
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% RESUMOS
+% ---
+% resumo em português
+%\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+%\begin{resumo}
+%\end{resumo}
+
+% ---
+% inserir lista de ilustrações
+% ---
+%\pdfbookmark[0]{\listfigurename}{lof}
+%\listoffigures*
+%\clearpage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+%\pdfbookmark[0]{\listtablename}{lot}
+%\listoftables*
+%\clearpage
+% ---
+
+% ---
+% inserir lista de códigos fonte
+% ---
+%\renewcommand\listoflistingscaption{Lista de Códigos Fonte}
+%\listoflistings
+%\clearpage
 %---
-% página de titulo
-\maketitle
 
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\clearpage
 % ---
 
 % ----------------------------------------------------------
@@ -154,19 +210,18 @@
 \textual
 
 % ----------------------------------------------------------
+% Corpo do trabalho
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
-\input{introducao}
+\include{introducao}
 
 % ----------------------------------------------------------
 % Seção de explicações
 % ----------------------------------------------------------
 \input{metodo}
-
-% ----------------------------------------------------------
-% Seção de códigos fonte
-% ----------------------------------------------------------
-\include{codigos}
 
 % ----------------------------------------------------------
 % Seção de resultados dos testes
@@ -182,5 +237,7 @@
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
 \postextual
+
+\include{codigos}
 
 \end{document}

@@ -1,26 +1,32 @@
-\section{Códigos Fonte}
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
 
-	\subsection{Programa principal (\texttt{main.c})}
+% Imprime uma página indicando o início dos apêndices
+\partapendices
+
+\chapter{Códigos Fonte}
+
+	\section{Programa principal (\texttt{main.c})}
 		\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
 		]{c}{source_codes/main.c}
-		%\captionof{listing}{Código do arquivo \texttt{main.c}}
 		\label{lst:main.c}
 
-	\subsection{Biblioteca auxiliar}
-		\subsubsection{\emph{Header} (\texttt{gauss\_seidel.h})}
+	\section{Biblioteca auxiliar}
+		\subsection{\emph{Header} da biblioteca (\texttt{gauss\_seidel.h})}
 			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
 			]{c}{source_codes/gauss_seidel.h}
-			%\captionof{listing}{Código do arquivo \texttt{gauss\_seidel.h}}
 			\label{lst:gauss_seidel.h}
 
-		\subsubsection{Implementação da biblioteca (\texttt{gauss\_seidel.c})}
+		\subsection{Implementação da biblioteca (\texttt{gauss\_seidel.c})}
 			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
 			]{c}{source_codes/gauss_seidel.c}
-			%\captionof{listing}{Código do arquivo \texttt{gauss\_seidel.c}}
 			\label{lst:gauss_seidel.c}
 
-	\subsection{Programa auxiliar (\texttt{gera\_input.c})}
+	\section{Programa auxiliar (\texttt{gera\_input.c})}
 		\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
 			]{c}{source_codes/gera_input.c}
-			%\captionof{listing}{Código do arquivo \texttt{gauss\_seidel.c}}
 			\label{lst:gera_input.c}
+
+\end{apendicesenv}
