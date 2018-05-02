@@ -1,1 +1,6 @@
 \chapter{Método Iterativo de Gauss-Seidel}
+O método de Gauss-Seidel é um método iterativo baseado no método de Jacobi desenvolvido para resolver sistemas de equações lineares. Seu nome foi originado nos matemáticos Carl Friedrich Gauss e Philipp Ludwig von Seidel.
+
+Diferente do seu precursor, o método de Gauss-Seidel se aproveita de resultados de iterações passadas para acelerar a convergência para a resposta do sistema linear.
+
+\[x_i^{(k+1)} = \dfrac{1}{a_{ii}}\left(b_i - \sum_{j=1}^{i-1}{a_{ij}x^{(k+1)}} - \sum_{j=i+1}^{n}{a_{ij}x_{j}^{(k)}}\right), \quad i = 1, 2, \ldots, n\]
