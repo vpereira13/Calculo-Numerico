@@ -3,4 +3,14 @@ O método de Gauss-Seidel é um método iterativo baseado no método de Jacobi d
 
 Diferente do seu precursor, o método de Gauss-Seidel se aproveita de resultados de iterações passadas para acelerar a convergência para a resposta do sistema linear.
 
+Podemos fazer um comparativo visual entre as duas funções de iteração, primeiramente a de Jacobi:
+
+\[x_i^{(k+1)} = \dfrac{1}{a_{ii}}\left(b_i - \sum_{j=1\\j\neq i}^{n}{a_{ij}x_{j}^{(k)}}\right), \quad i = 1, 2, \ldots, n\]
+
+Já o método de Gauss-Seidel possui a seguinte fórmula de iteração:
+
 \[x_i^{(k+1)} = \dfrac{1}{a_{ii}}\left(b_i - \sum_{j=1}^{i-1}{a_{ij}x^{(k+1)}} - \sum_{j=i+1}^{n}{a_{ij}x_{j}^{(k)}}\right), \quad i = 1, 2, \ldots, n\]
+
+Com isso podemos ver que por se utilizar das iterações anteriores, o método proposto para esse trabalho converge mais rápido que o de Jacobi.
+
+Esses dois métodos são indicados para aplicações onde a matriz \(A\) é esparsa, ou seja, quando possui uma grande quantidade de elementos que valem zero.
