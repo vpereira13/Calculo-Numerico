@@ -9,10 +9,15 @@
  *		Victor Luiz da Silva Mariano Pereira    8602444
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <simpson_composta.h>
+#ifndef SIMPSON_E_NEWTON_H
+#define SIMPSON_E_NEWTON_H
+
+/**
+ * Definindo ponteiros para funções, servirá para poder chamar a função
+ * desejada por parâmetro
+ */
+typedef long double (*Funcao_Derivada)(long double);
+typedef long double (*Funcao)(long double, long double, int, Funcao_Derivada);
 
 /**
  * Função que calcula o valor de f(x), sendo f(x) dada por:
@@ -22,9 +27,7 @@
  * @param  x ponto x onde será calculada f(x)
  * @return   valor da função f(x) calculada no ponto x
  */
-long double funcao_f (long double x){
-	return (1.0/(sqrt(2*M_PI)*1.0))*exp((- pow(x, 2.0))/2.0);
-}
+long double f_linha (long double x);
 
 /**
  * Função para calcular a integração de uma certa função f usando o método de
@@ -41,36 +44,16 @@ long double funcao_f (long double x){
  * @param  f  função a ser integrada
  * @return    valor aproximado da integral da função f
  */
-long double simpson_composta(long double x0, long double xN, int n, Funcao f){
-	long double x;
-	long double h;
-	long double resposta;
-	long double pares;
-	long double impares;
+long double simpson_composta(long double x0, long double xN, int n, Funcao_Derivada f);
 
-	int i;
+/**
+ * Função que calcula a raiz de uma função utilizando o método de Newton
+ * @param  x0      Valor do chute inicial
+ * @param  e       Precisão esperada
+ * @param  f       Função que será analisada
+ * @param  f_linha Derivada da função que será analisada
+ * @return         Aproximação da raiz da função dada, com uma certa precisão
+ */
+long double newton(long double x0, long double e, Funcao f, Funcao_Derivada f_linha);
 
-	if (n % 2 != 0)
-		n += 1;
-	h = (xN - x0)/n;
-
-	pares = 0;
-	impares = 0;
-	x = x0 + h;
-
-	resposta = f(x0) + f(xN);
-
-	for (i = 1; i < n; i++){
-		if (i % 2 == 0)
-			pares += f(x);
-		else
-			impares += f(x);
-
-		x += h;
-	}
-
-	resposta += 4 * impares + 2 * pares;
-	resposta *= h/3;
-
-	return resposta;
-}
+#endif
