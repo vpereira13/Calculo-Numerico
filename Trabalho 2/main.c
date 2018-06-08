@@ -10,8 +10,7 @@
  */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <simpson_composta.h>
+#include <simpson_e_newton.h>
 
 int main (int argc, char *argv[]){
 	long double x0;
@@ -22,6 +21,7 @@ int main (int argc, char *argv[]){
 	scanf("%Lf", &xN);
 	scanf("%Lf", &n);
 
-	printf("%.16Lf\n", simpson_composta(x0, xN, n, funcao_f));
+	printf("Valor da integral, utilizando Simpson 1/3 Composta: %.16Lf\n", simpson_composta(x0, xN, n, f_linha));
+	printf("Valor da raiz pelo metodo de Newton: %.16Lf\n", newton(0.5, 0.0000000001, simpson_composta, f_linha));
 	return 0;
 }
