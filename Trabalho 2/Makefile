@@ -1,6 +1,6 @@
-# Makefile 05 - Automatic header dependences (non-strict POSIX)
+# Makefile 06 - User flags
 
-# Copyright (c) 2015, Monaco F. J. <moanco@icmc.usp.br>
+# Copyright (c) 2015, Monaco F. J. <monaco@.usp.br>
 #
 # This file is part of POSIXeg.
 #
@@ -19,24 +19,30 @@
 
 # Objects
 
-OBJECTS = main.o simpson_composta.o
+OBJECTS = main.o simpson_e_newton.o
 
 BIN = main
 
+# Maintainer flags
+
+CPP_FLAGS = -I.
+C_FLAGS =
+LD_FLAGS = -lm
+CC = gcc
 
 # Default target
 
-all: main
+all: $(BIN)
 
 # Binary
 
 $(BIN) : $(OBJECTS)
-	gcc $^ -o $@ -lm
+	$(CC) $(LD_FLAGS) $(LDFLAGS) $^ -o $@
 
 # Pattern rule for object-source dependences
 
 %.o : %.c
-	gcc -I. -c $<
+	$(CC) $(CPP_FLAGS) $(CPPFLAGS) $(C_FLAGS) $(CFLAGS)-c $<
 
 # Automatic object-header dependences
 
@@ -45,12 +51,15 @@ makefiles = $(OBJECTS:%.o=%.d)
 include $(makefiles)
 
 %.d : %.c
-	gcc -I. -MM -MT '$(<:.c=.o) $@' $< >$@ -lm
+	$(CC) $(CPP_FLAGS) $(CPPFLAGS) -c $<  -MM -MT '$(<:.c=.o) $@' $< >$@
+
+run:
+	@./main
 
 # Cleaning
 
-.PHONY: clean
+.PHONY : clean
 
 clean:
-	rm -f $(OBJECTS) $(BIN)
+	rm -f $(OBJECTS) $(BIN) *.d
 	rm -f *~ \#*
