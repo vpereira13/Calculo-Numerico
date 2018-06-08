@@ -1,0 +1,230 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%																	%
+%	Trabalho 2 - Método de Integração Numérica Simpson 1/3 Composta	%
+%																	%
+%	Cálculo Numérico	SME-0104									%
+%	Prof.: Murilo Francisco Tomé									%
+%																	%
+%	Eduardo Brunaldi dos Santos				8642515					%
+%	Jorge Ashkar Ferreira Simondi			8517081					%
+%	Victor Luiz da Silva Mariano Pereira	8602444					%
+%																	%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	twoside,			% para impressão frente e verso
+	openright,
+	a4paper,			% tamanho do papel.
+	]{abntex2}
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+	\graphicspath{Figuras/}
+\usepackage{polyglossia}
+	\setdefaultlanguage{portuges}
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+
+% ---
+% Pacotes para fins matemáticos
+% ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}					% Citações padrão ABNT
+\usepackage{caption}							% Pacote para resolver o problema do
+												% "listings", "minted" e códigos muito grandes
+\usepackage{listings}							% Pacote para listagens de códigos
+\usepackage{minted}								% Inserção de códigos fonte
+% ---
+
+% ---
+% Pacotes adicionais
+% ---
+%\usepackage{showframe}
+\usepackage{multicol}
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Trabalho 2\\
+		Método de Integração Numérica\\
+		Simpson 1/3 Composta}
+\autor{ Eduardo Brunaldi dos Santos --- 8642515\and\\
+		Jorge Ashkar Ferreira Simondi --- 8517081\and\\
+		Victor Luiz da Silva Mariano Pereira --- 8602444\\
+	}
+\orientador[Professor]{Murilo Francisco Tomé}
+\local{Brasil}
+\data{2018}
+\instituicao{%
+  Universidade de São Paulo -- USP
+  \par
+  Instituto de Ciências Matemáticas e de Computação -- ICMC
+  \par
+  Cálculo Numérico -- SME0104}
+\tipotrabalho{Trabalho Acadêmico}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+	 	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+		pdfsubject={Método de Integração Numérica Simpson 1/3 Composta}
+		pdfcreator={LaTeX with abnTeX2 and LuaLaTeX},
+		pdfkeywords={Cáculo Numérico}{ Integração Numérica}{ Simpson 1/3
+Composta},
+		colorlinks=true,			% false: boxed links; true: colored links
+		linkcolor=blue,				% color of internal links
+		citecolor=blue,				% color of links to bibliography
+		filecolor=magenta,			% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% ---
+
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+\pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% RESUMOS
+% ---
+% resumo em português
+%\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+%\begin{resumo}
+%\end{resumo}
+
+% ---
+% inserir lista de ilustrações
+% ---
+%\pdfbookmark[0]{\listfigurename}{lof}
+%\listoffigures*
+%\clearpage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+%\pdfbookmark[0]{\listtablename}{lot}
+%\listoftables*
+%\clearpage
+% ---
+
+% ---
+% inserir lista de códigos fonte
+% ---
+%\renewcommand\listoflistingscaption{Lista de Códigos Fonte}
+%\listoflistings
+%\clearpage
+%---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\clearpage
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Corpo do trabalho
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\include{introducao}
+
+% ----------------------------------------------------------
+% Seção de explicações
+% ----------------------------------------------------------
+\input{metodo}
+
+% ----------------------------------------------------------
+% Seção de resultados dos testes
+% ----------------------------------------------------------
+\include{resultados}
+
+% ---
+% Conclusão
+% ---
+\include{conclusao}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+\include{codigos}
+
+\end{document}

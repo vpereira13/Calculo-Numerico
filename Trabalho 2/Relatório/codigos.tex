@@ -1,0 +1,27 @@
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+\partapendices
+
+\chapter{Códigos Fonte}
+\label{ch:codigos_fonte}
+	\section{Programa principal (\texttt{main.c})}
+		\label{sec:main.c}
+		\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+		]{c}{source_codes/main.c}
+
+	\section{Biblioteca auxiliar}
+		\subsection{\emph{Header} da biblioteca (\texttt{simpson\_composta.h})}
+		\label{sec:simpson_composta.h}
+			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+			]{c}{source_codes/simpson_composta.h}
+
+		\subsection{Implementação da biblioteca (\texttt{simpson\_composta.c})}
+			\label{sec:simpson_composta.c}
+			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+			]{c}{source_codes/simpson_composta.c}
+
+\end{apendicesenv}
