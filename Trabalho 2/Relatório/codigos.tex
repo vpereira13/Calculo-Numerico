@@ -8,20 +8,51 @@
 
 \chapter{Códigos Fonte}
 \label{ch:codigos_fonte}
-	\section{Programa principal (\texttt{main.c})}
-		\label{sec:main.c}
+	\section{Programas principais}
+		\subsection{\texttt{main\_simpson.c}}
+		\label{subsec:main_simpson.c}
 		\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
-		]{c}{source_codes/main.c}
+		]{c}{source_codes/main_simpson.c}
 
-	\section{Biblioteca auxiliar}
-		\subsection{\emph{Header} da biblioteca (\texttt{simpson\_e\_newton.h})}
-		\label{sec:simpson_composta.h}
-			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
-			]{c}{source_codes/simpson_e_newton.h}
+		\subsection{\texttt{main\_newton.c}}
+		\label{subsec:main_newton.c}
+		\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+		]{c}{source_codes/main_newton.c}
 
-		\subsection{Implementação da biblioteca (\texttt{simpson\_e\_newton.c})}
-			\label{sec:simpson_composta.c}
+	\section{Programas auxiliares}
+		\subsection{\texttt{Makefile}}
+		\label{subsec:Makefile}
 			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
-			]{c}{source_codes/simpson_e_newton.c}
+			]{c}{source_codes/Makefile}
+
+		\subsection{\emph{Header} da biblioteca de Funções (\texttt{funcoes.h})}
+		\label{subsec:funcoes.h}
+			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+			]{c}{source_codes/funcoes.h}
+
+		\subsection{Implementação da biblioteca de Funções (\texttt{funcoes.c})}
+			\label{subsec:funcoes.c}
+			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+			]{c}{source_codes/funcoes.c}
+
+		\subsection{\emph{Header} da biblioteca de Simpson (\texttt{simpson.h})}
+		\label{subsec:simpson.h}
+			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+			]{c}{source_codes/simpson.h}
+
+		\subsection{Implementação da biblioteca de Simpson (\texttt{simpson.c})}
+			\label{subsec:simpson.c}
+			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+			]{c}{source_codes/simpson.c}
+
+		\subsection{\emph{Header} da biblioteca de Newton (\texttt{newton.h})}
+		\label{subsec:newton.h}
+			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+			]{c}{source_codes/newton.h}
+
+		\subsection{Implementação da biblioteca de Newton (\texttt{newton.c})}
+			\label{subsec:newton.c}
+			\inputminted[autogobble,breaklines,linenos,frame=lines,tabsize=4,obeytabs=true,fontsize=\footnotesize
+			]{c}{source_codes/newton.c}
 
 \end{apendicesenv}
