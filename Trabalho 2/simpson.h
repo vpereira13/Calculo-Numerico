@@ -9,25 +9,15 @@
  *		Victor Luiz da Silva Mariano Pereira    8602444
  */
 
-#ifndef SIMPSON_E_NEWTON_H
-#define SIMPSON_E_NEWTON_H
+#ifndef SIMPSON_H
+#define SIMPSON_H
 
 /**
- * Definindo ponteiros para funções, servirá para poder chamar a função
+ * Definindo ponteiros para funções, serivrá para poder chamar a função
  * desejada por parâmetro
  */
 typedef long double (*Funcao_Derivada)(long double);
 typedef long double (*Funcao)(long double, long double, int, Funcao_Derivada);
-
-/**
- * Função que calcula o valor de f(x), sendo f(x) dada por:
- *
- *		f(x) = (1/sqrt(2*π))*e^((-x^2)/2)
- *
- * @param  x ponto x onde será calculada f(x)
- * @return   valor da função f(x) calculada no ponto x
- */
-long double f_linha (long double x);
 
 /**
  * Função para calcular a integração de uma certa função f usando o método de
@@ -45,15 +35,5 @@ long double f_linha (long double x);
  * @return    valor aproximado da integral da função f
  */
 long double simpson_composta(long double x0, long double xN, int n, Funcao_Derivada f);
-
-/**
- * Função que calcula a raiz de uma função utilizando o método de Newton
- * @param  x0      Valor do chute inicial
- * @param  e       Precisão esperada
- * @param  f       Função que será analisada
- * @param  f_linha Derivada da função que será analisada
- * @return         Aproximação da raiz da função dada, com uma certa precisão
- */
-long double newton(long double x0, long double e, Funcao f, Funcao_Derivada f_linha);
 
 #endif
