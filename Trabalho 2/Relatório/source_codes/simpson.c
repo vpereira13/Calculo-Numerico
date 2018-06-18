@@ -9,21 +9,8 @@
  *		Victor Luiz da Silva Mariano Pereira    8602444
  */
 
-#include <stdio.h>
-#include <math.h>
-#include <simpson_e_newton.h>
-
-/**
- * Função que calcula o valor de f(x), sendo f(x) dada por:
- *
- *		f(x) = (1/sqrt(2*π))*e^((-x^2)/2)
- *
- * @param  x ponto x onde será calculada f(x)
- * @return   valor da função f(x) calculada no ponto x
- */
-long double f_linha (long double x){
-	return (1.0/(sqrt(2*M_PI)*1.0))*exp((- pow(x, 2.0))/2.0);
-}
+#include <funcoes.h>
+#include <simpson.h>
 
 /**
  * Função para calcular a integração de uma certa função f usando o método de
@@ -88,38 +75,4 @@ long double simpson_composta(long double x0, long double xN, int n, Funcao_Deriv
 	// Retorna o valor aproximado da integral utilizando o método de
 	// Simpson 1/3 composto
 	return resposta;
-}
-
-/**
- * Função que calcula a raiz de uma função utilizando o método de Newton
- * @param  x0      Valor do chute inicial
- * @param  e       Precisão esperada
- * @param  f       Função que será analisada
- * @param  f_linha Derivada da função que será analisada
- * @return         Aproximação da raiz da função dada, com uma certa precisão
- */
-long double newton(long double x0, long double e, Funcao f, Funcao_Derivada f_linha){
-	// Variáveis auxiliares
-	long double x_atual;
-	long double x_anterior;
-	int iteracoes = 0;
-
-	// Atualiza o valor de x_n+1
-	x_atual = x0;
-
-	do{
-		// Atualiza valor de x_n
-		x_anterior = x_atual;
-		// Calcula novo valor de x_n+1
-		x_atual = x_anterior - ((f(0, x_anterior, 200, f_linha)-0.45)/f_linha(x_anterior));
-		// Atualiza contador de iterações
-		iteracoes += 1;
-	}while(fabs(x_atual - x_anterior) > e); // Verifica condição da precisão
-
-	// Se não quiser imprimir o número de iterações do método de Newton, basta
-	// comentar a próxima linha
-	printf("Numero de iteracoes do metodo de Newton: %d\n", iteracoes);
-
-	// Retorna a raiz calculada
-	return x_atual;
 }
