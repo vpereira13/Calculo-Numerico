@@ -1,1 +1,54 @@
 \chapter{Resultados}
+\section{Primeira etapa --- Simpson 1/3 composto}
+\label{sec:resultadoSimpson}
+Inicialmente nos foi pedido para utilizar o programa que criamos para calcular
+\(F(1)\times F(2)\), em que \(F(1) = I(f)(1) - 0.45\) e  \(F(2) = I(f)(2) -
+0.45\) e verificar que o resultado dessa multiplicação é menor que zero, ou
+seja, que existe uma raiz nesse intervalo (\([1, 2]\)).
+
+Para realizar esse teste, primeiro temos que calcular a \(I(f)(1)\) e
+\(I(f)(2)\), para isso utilizaremos o programa \texttt{main\_simpson} e dois
+arquivos auxiliares de entrada, o arquivo \texttt{simpson1.in} e o
+\texttt{simpson2.in}, que estão na pasta \texttt{inputs/}. Rodando o programa
+\texttt{main\_simpson} da forma que foi explicada na
+subseção~\ref{subsec:ex_com}, obtivemos as seguintes saídas, respectivamente:
+
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	make run_simpson < inputs/simpson1.in
+	0.3413447460954296
+\end{minted}
+
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	make run_simpson < inputs/simpson2.in
+	0.4772498679557957
+\end{minted}
+
+Agora fazendo a operação solicitada:
+\begin{align*}
+F(1) &= 0.341344746095429 - 0.45\\
+     &= -0.108655253904571\\
+F(2) &= 0.4772498679557957 - 0.45\\
+     &= 0.0272498679557957\\
+F(1) \times F(2) &= -0.108655253904571 * 0.0272498679557957\\
+                 &= -0.002960841321603\\
+\end{align*}
+\hfill\(\blacksquare\)
+
+\section{Segunda etapa --- Método de Newton}
+Nessa segunda etapa foi solicitado que aproximemos a raiz que foi provada a
+existência na seção anterior, a seção \ref{sec:resultadoSimpson}, utilizando o
+programa que fizemos.
+
+Com chute inicial de \(0.5\) e precisão de \(10^{-10}\)Também utilizando a
+arquivo auxiliar de entrada, no caso o \texttt{newton1.in}, obtivemos a seguinte
+saída:
+
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	make run_newton < inputs/newton1.in
+	Numero de iteracoes do metodo de Newton: 7
+	1.6448536269391639
+\end{minted}
+
+Ou seja, a aproximação que obtivemos utilizando o método de Newton para a raiz
+foi o ponto \(1.6448536269391639\) e esse ponto com a precisão solicitada foi
+encontrado após sete iterações.

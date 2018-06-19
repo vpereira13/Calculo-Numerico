@@ -7,6 +7,7 @@ para modularizar nosso trabalho.
 
 \section{Arquivos principais}
 Os arquivos que produzimos são:
+\begin{multicols}{2}
 	\begin{itemize}
 		\item \texttt{funcoes.c}
 		\item \texttt{funcoes.h}
@@ -18,6 +19,7 @@ Os arquivos que produzimos são:
 		\item \texttt{main\_simpson.c}
 		\item \texttt{Makefile}
 	\end{itemize}
+\end{multicols}
 
 \section{Compilando}
 Para compilar os dois programas utilizaremos a ferramenta \texttt{make}, que
@@ -25,26 +27,26 @@ utiliza como base o arquivo \texttt{Makefile}. Para compilar os dois programas
 basta estar no diretório dos arquivos e rodar os seguintes comandos:
 
 \begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
-	make main_newton	#Para compilar o programa que utiliza o método de Newton
-	make main_simpson	#Para compilar o programa que utiliza o método de
-Simpson 1/3
+	make main_newton    #Para compilar o programa que utiliza o método de Newton
+	make main_simpson   #Para compilar o programa que utiliza o método de Simpson 1/3
 \end{minted}
 
-\section{Rodando}
+\section{Execução}
 Para executar os programas há duas formas, automática, a qual é preciso um
 arquivo de entrada, ou colocando os dados um a um. Como foi solicitado uns
-testes específicos, deixamos disponíveis, na pasta \texttt{inputs}, os testes
+testes específicos, deixamos disponíveis, na pasta \texttt{inputs/}, os testes
 para serem executados.
 
 \subsection{Executando programa sem arquivo de entrada}
 \begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
-	make run_newton		#Para executar o método de Newton
-	make run_simpson	#Para executar o método de Simpson
+	make run_newton     #Para executar o método de Newton
+	make run_simpson    #Para executar o método de Simpson
 \end{minted}
 
 \subsection{Executando programa com arquivo de entrada}
+\label{subsec:ex_com}
 \begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
-	make run_newton	< arquivo_de_input	#Para executar o método de Newton
-	make run_simpson < arquivo_de_input	#Para executar o método de Simpson
+	make run_newton < arquivo_de_input     #Para executar o método de Newton
+	make run_simpson < arquivo_de_input    #Para executar o método de Simpson
 \end{minted}
 
