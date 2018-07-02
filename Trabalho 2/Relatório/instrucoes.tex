@@ -3,7 +3,7 @@ Nesse capítulo mostraremos como compilar e executar os programas que produzimos
 Fizemos dois programas, um para calular a integração usando o método de Simpson
 1/3 composto e outro para calcular a raiz de uma função utilizando o método de
 Newton. Porém os dois utilizam programas auxiliares, chamamos de bibliotecas,
-para modularizar nosso trabalho.
+para modularizar nosso trabalho. Uma observação pertinente é que utilizamos GNU/Linux para fazer o trabalho, recomendamos utilizar o mesmo para realizar os passos a seguir.
 
 \section{Arquivos principais}
 Os arquivos que produzimos são:
@@ -20,6 +20,14 @@ Os arquivos que produzimos são:
 		\item \texttt{Makefile}
 	\end{itemize}
 \end{multicols}
+
+\section{Arquivos de entrada}
+Para não ter o trabalho de digitar toda vez as entradas, fizemos alguns arquivos de entrada para automatizar a fase de testes. Os arquivos de entrada que fizemos são:
+\begin{itemize}
+	\item \texttt{inputs/newton1.in}
+	\item \texttt{inputs/simpson1.in}
+	\item \texttt{inputs/simpson2.in}
+\end{itemize}
 
 \section{Compilando}
 Para compilar os dois programas utilizaremos a ferramenta \texttt{make}, que
