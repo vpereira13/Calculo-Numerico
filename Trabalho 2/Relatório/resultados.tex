@@ -8,29 +8,31 @@ seja, que existe uma raiz nesse intervalo (\([1, 2]\)).
 
 Para realizar esse teste, primeiro temos que calcular a \(I(f)(1)\) e
 \(I(f)(2)\), para isso utilizaremos o programa \texttt{main\_simpson} e dois
-arquivos auxiliares de entrada, o arquivo \texttt{simpson1.in} e o
-\texttt{simpson2.in}, que estão na pasta \texttt{inputs/}. Rodando o programa
-\texttt{main\_simpson} da forma que foi explicada na
-subseção~\ref{subsec:ex_com}, obtivemos as seguintes saídas, respectivamente:
+arquivos auxiliares de entrada, o arquivo
+\texttt{simpson1.in}(\ref{app:input_simpson1}) e o
+\texttt{simpson2.in}(\ref{app:input_simpson2}), ambos presente na pasta
+\texttt{inputs/}. Rodando o programa \texttt{main\_simpson} da forma que foi
+explicada na subseção~\ref{subsec:ex_com}, obtivemos as seguintes saídas,
+respectivamente:
 
 \begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
 	make run_simpson < inputs/simpson1.in
-	0.3413447460685457
+	0.3413447460685430
 \end{minted}
 
 \begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
 	make run_simpson < inputs/simpson2.in
-	0.4772498680518112
+	0.4772498680518208
 \end{minted}
 
 Agora fazendo a operação solicitada:
 \begin{align*}
-F(1) &=  0.3413447460685457- 0.45\\
-     &= -0.10865525393145431\\
-F(2) &=  0.4772498680518112 - 0.45\\
-     &= 0.027249868051811177\\
-F(1) \times F(2) &= -0.10865525393145431 * 0.027249868051811177\\
-                 &= -0.0029608413327681677\\
+F(1) &=  0.3413447460685430 - 0.45\\
+     &= -0.10865525393145703\\
+F(2) &=  0.4772498680518208 - 0.45\\
+     &=  0.02724986805182078\\
+F(1) \times F(2) &= -0.10865525393145703 * 0.02724986805182078\\
+                 &= -0.0029608413327692853\\
 \end{align*}
 \hfill\(\blacksquare\)
 
