@@ -12,4 +12,4 @@ comparações.
 A descrição do trabalho pode ser encontrada no [site](http://www.lcad.icmc.usp.br/~mftome/SME300/2o-TRABALHO-PRATICO.pdf) ou no próprio [repositório](https://github.com/vpereira13/Calculo-Numerico/blob/master/Trabalho%202/Trabalho%202%20-%20Integra%C3%A7%C3%A3o%20Num%C3%A9rica%20Simpson%2013%20Composta.pdf).
 
 ## Licença
-Todos os códigos desse repositório foram feitos pelo grupo e estão sobre licença [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Todos os códigos desse repositório foram feitos pelo grupo e estão sob licença [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
